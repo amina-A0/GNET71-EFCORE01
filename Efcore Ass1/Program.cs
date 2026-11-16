@@ -1,10 +1,16 @@
-﻿namespace Efcore_Ass1
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Efcore_Ass1
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            using var context = new BookstoreContext();
+
+            context.Database.Migrate();
+
+            Console.WriteLine("Database created successfully!");
         }
     }
 }
